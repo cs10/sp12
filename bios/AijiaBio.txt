@@ -1,0 +1,61 @@
+WHERE DID YOU GROW UP?  WHAT WAS YOUR ACADEMIC PATH?
+
+I was born and grew up in Shanghai, the largest city in China. I came to the US
+when I was 17 and lived in San Francisco for a while and went to Seattle for
+college. I was interested in international studies and physiology in my
+freshman year, but soon I found about the Human Computer Interaction community
+at University of Washington, and fell in love with this interdisciplinary
+study. I ended up majoring in Human Centered Design and Engineering with a
+focus on HCI (Human Computer Interaction). 
+
+After I graduated from UW in June, I started my Master degree in Information
+Management and System at Berkeley and this place really fascinates me. 
+
+HOW MUCH PROGRAMMING HAVE YOU DONE?  WHAT LANGUAGES?
+
+I started programming late considering many students did in their schools. I am
+not a typical programmer but I was exposed to many projects and course work
+that were programming heavy. Through my college years, I gain skills majorly in
+Java, Python, PHP, HTML, CSS, JavaScript (jQuery), and MySQL. 
+
+WHAT ARE YOUR HOBBIES?
+
+I like tennis, singing, and playing the piano during my free time. I like
+socializing with people sharing the same interests with me. 
+
+WHAT ARE SOME OF YOUR TALENTS AND SKILLS?
+
+I have learned how to collaborate with co-workers in the professional world,
+and how to make the best design and management decisions within time and budget
+constraints. I have had roles as a Visual Designer, Web Developer, Technical
+Writer, and Program Manager in different technical projects, from which I
+gained strong organizing skills and the ability to work with other members on
+the team.
+
+Besides those, I considering singing is really my talent and I still keep the
+dream of being a singer of musicals. 
+
+HAVE YOU EVER DONE ANYTHING REMARKABLE?
+
+Hmm...I collaborated with students in different disciplines, majorly in
+computer science to work on projects for developing technologies in
+underdeveloped countries. 
+
+I had an internship with Microsoft and worked in Worldwide E-Government at
+Public Sector to develop BI (Business Intelligence) strategies. 
+
+I was a volunteer for the Olympics Games in Beijing 2008 and was awarded
+Outstanding Volunteer nationally. 
+
+I received Outstanding Female Award from Society of Women Engineers in my
+senior year in college. 
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS TERM?
+
+I am teaching two sections this semester and this is my first time teaching at
+Berkeley, so there are many new things I need to explore and pick up quickly.
+Besides being a GSI, I am also a master student who has to study, do tons of
+readings, take exams, write essays, and work on projects. It’s a great
+challenge for me on time management as well as communication and leadership.  I
+think it will be exciting and fun to teach because I really like the class
+subject and the faculty team of CS 10.

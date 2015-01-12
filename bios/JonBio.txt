@@ -1,0 +1,117 @@
+WHERE DID YOU GROW UP? WHAT WAS YOUR PATH TO CAL?
+
+I was born in the Philippines, where I also spent the first two years of my
+life.  Then, I moved to Oman, a Middle Eastern country, where my father works
+as a pharmacist.  I spent most of my life thus far in a small semi-urban city
+called Al Wadi Al Kabir (literally, "The Great Valley", where the city is
+located), and I go back home every vacation.  I am half-Indian (from my
+father's side) and half-Filipino (from my mother's side), and so it is very
+hard to place myself in a particular culture bracket.  Even though I am a
+Filipino citizen, my exposure of the culture is limited to television shows
+and food, and I can understand some Tagalog, but not speak it.  I studied from
+Grades 1 through 12 at an Indian School in Al Wadi Al Kabir, and so I grew up
+in a predominantly Indian culture, enjoy Indian food, and occasionally listen
+to Hindi songs and watch Bollywood movies.
+
+After high school, I took a gap year to decide where I wanted to go and pursue
+my education, and in that year, I applied to US colleges, coached the SAT while
+I was studying for it, interned at a newsmagazine, and earned my first
+paychecks.  I applied to Cal on the suggestion of a fantastic college
+counsellor, and now here I am!  :-)  I have already completed my B.S. degree
+in EECS here (with a minor in Math), and am currently pursuing my M.S. degree
+in EECS as well.
+
+In case you're wondering if EECS is for you: I wasn't sure either!  I had
+always thought that I should stay away from CS, because I had the unfortunate
+impression that CS people spend their time secluded in a cubicle.  I was so
+mistaken: CS is one of the most social majors I know.  I came in thinking I
+would be either a bio-engineer or a chemical engineer, and I took both
+Chemistry 4A (the first course for chemical engineers) and Computer Science 61A
+my first semester.  I didn't do as well in the former, because I spent too
+much time enjoying the latter.  CS61A also gave me the impetus to be a TA,
+and I have been a TA seven times since.  Moral of the story: if you think
+you may like EECS -- if you even have an inkling -- give it a shot!
+
+HOW MUCH PROGRAMMING HAVE YOU DONE (& WHAT LANGUAGES)?
+
+I had done a fair bit of programming in school: computer science classes back
+home dealt mainly with how to use Microsoft products, so I am an
+(unfortunate?) expert on those products.  However, we also dabbled in BASIC,
+Logo, and C++.  At Berkeley, of course, I did a lot of programming, and my
+resume proclaims that I have coded in Scheme, Java, C, C++, C#, Python,
+Scratch, BYOB, F#, LaTeX, MIPS, Verilog, HTML, CSS, and Javascript.  I am
+also especially interested in the design of programming languages and
+compilers, which plays an important part in my research.
+
+WHAT ARE YOUR HOBBIES?  WHAT ARE SOME OF YOUR TALENTS & SKILLS?
+
+I am answering these two questions together, because they seem to be related.
+I am a competitive Scrabbler, and so I enjoy the occasional game of Scrabble.
+(It's not much nerdier than chess, and competitive Scrabble is more about your
+strategies than about the words you make.)  I also code small personal
+projects on the side, but I have begun to find lesser and lesser time for them.
+:-(  I can do reasonably large arithmetic in my head, the fruit of having to
+do so for years in school.  I enjoy science fiction -- in particular, I have
+taken a liking to "The X-Files" and "Doctor Who" -- and popular drama shows.
+I also love to teach and explain, and I like to think that I am witty and
+punny, but your mileage of this may vary.  :-)  I also absorb Internet memes,
+and spent a *lot* of time browsing the Intarwebz.  (Though I reckon that this
+isn't an amazing fact nowadays.)
+
+I have not fed my non-nerdy side much, especially before college, although I
+am actively trying to change that.  I enjoy the occasional game of basketball,
+and I started to pursue martial arts when I came to America: I am currently a
+green belt in Tae Kwon Do, and I am considering Judo.
+
+HAVE YOU DONE ANYTHING REMARKABLE? HAS ANYTHING MEMORABLE HAPPENED TO YOU?
+
+I am slowly coming to believe that I am an anonymous Internet celebrity, which
+is both thrilling and intimidating.  I interned at Gmail in the Summer of 2008,
+and I was tasked with writing up experimental features under the Gmail Labs
+initiative -- basically, we pushed out features that users could try and give
+feedback on, and if the feedback was generally good, the feature would be
+permanently incorporated into Gmail.  This is my "remarkable achievement",
+because code that I wrote one summer is now being used by millions of people
+over the world, and that's exciting.  It is also a testament to how powerful
+and ubiquitous Computer Science is.
+
+My main features were:
+
+* Users can now add "EOM" ("End of Message"), or some variant thereupon, to the
+end of a subject line, to signify that you are not planning to include a body;
+this also tells Gmail not to show an alert asking if you wanted to send a
+message without a body, which it would otherwise do.
+
+* The Default Text Styler, which allows you to set the style (font face, font
+color, and so on) of an e-mail as soon as you begin to compose one.
+
+* The Message Previewer, which pops up a little pane when you right-click a
+message, allowing you to preview the contents.
+
+* The Forgotten Attachment Detector -- my pride and joy.  The idea was not
+mine, and it was already implemented internally; my task was to re-implement
+it publicly.  Basically, the Detector determines if you were going to attach
+a file to an e-mail but didn't do so; it scans through the text of your
+e-mail, looks for variations of the phrase "I am attaching", and checks that
+you have actually attached something.  If you haven't attached anything, it
+will pop up an alert before you send the e-mail, thus saving you from the
+embarrassment of sending an e-mail without the necessary attachments.
+
+This is, apparently, the most useful of my labs, and was soon upgraded to
+become a permanent feature of Gmail.  The considerable online attention to
+the Detector consistently amazes me.  Friends often tell me how the feature
+saved them, and the Detector is seen occasionally on Reddit.  The Internet
+is an amazing place.
+
+Of course, an even more memorable incident is when I first heard I was coming
+to Berkeley: that was the best day of my pre-college life, and quite possibly,
+the most life-changing.  I thank God for this opportunity.
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS SEMESTER?
+
+I am currently TA-ing CS10, doing research in program analysis and embedded
+systems with Prof. Sanjit Seshia, and taking classes.  In the evenings, I
+practice Tae Kwon Do, and I work out regularly.  I also partition my free
+time between tutoring for HKN (the EECS Honors society), advising for EE20N,
+a class that I TA'd for four semesters, and going to church.  I also have to
+find time to sleep and eat!

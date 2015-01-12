@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CS10 Lab : Distributed Computing</title>
+</head>
+
+<body>
+<h1>Distributed Computing</h1>
+<h2>Learning Goals</h2>
+<ul>
+  <li>Digital devices, systems, and the networks that interconnect them enable and foster  computational approaches to solving problems. (this is from AP's big ideas section VI)</li>
+  <li><em>MapReduce</em> is a particularly nice example of a distributed computing pattern, and the facility to write (and debug, and test, and evaluate) programs in our simplified MapReduce abstraction.</li>
+</ul>
+<h2><em>MapReduce</em> Distributed Computing  Pattern</h2>
+<ul>
+  <li>Distributed computing is a field where many computers (often geographically remote) are used to solve a single problem. 
+      <ul>
+        <li>As you can imagine, the mechanisms of this are quite complicated, and traditionally, distributed programming has been difficult (at least compared to programming on a single computer with one core).</li>
+        <li>The scientific community cares deeply about this issue, because they often have very large computations that can only be done in a distributed way (e.g., simulating climate change). Very early distibuted computing applications were all scientific in nature.</li>
+        <li>More recently, <em>every</em> field has large datasets and compute jobs, from entertainment (Pixar rendering a frame from their latest movie) to medicine (protein folding) to finance (running simulations of a new purchasing strategy on all historic stock exchange data) to artificial intellgence (solving checkers) to business (Google needing to crawl and index and search the web).</li>
+        <li>Languages and tools and abstractions have improved greatly for distributed computations.</li>
+        <li>At the end of the day, <em>Amdahl's law</em> tells us that in the perfect world, if we distribute the problem across N machines, we can solve the problem N times faster, but it's going to be hard to get that level of speedup because of serial fraction of code. Still, if N is on the order of a million and coders make every effort to reduce the serial fraction, that's  a pretty fast system!</li>
+    </ul>    
+  <li>There are common <em>patterns</em> that have emerged (i.e., the best ways) to approach problems with computational resources which might be geographically distant.
+  <li>One of these is <em>MapReduce</em>, which has emerged as one remarkable abstraction for dealing with the difficulties of distributed computing.
+    <ul>
+      <li>Researchers at Google wrote the seminal paper on it, and they use it extensively to take advantage of 
+their massive datacenters to help them with their massive data needs. In our simplifaction of the 
+process...</li>
+      <li>There is a <strong>Map</strong> phase where (sometimes very big) data is broken up into pieces and sent to machines with <em>mapping function</em>. Sometimes the mapping function is the identity (i.e., do nothing) function; take what is sent in and return it. The output of the mapper is the same as the input of the reducers. In our simplying abstraction, the mapping happens over a list of elements, which can be of any type (word, sentence, list, procedure, etc).</li>
+      <li>There is a <strong>Reduce</strong> phase where all the results of the mappers are combined into one by a <em>reducing function</em>, which takes two adjacent pairs and replaces those with the reduction, and this process continues until there's only one element left.</li>
+      <li>Note that the outputs of reductions are sent as input to other reducers, so in our simplifying abstraction, there are only two data types: 
+        <ol>
+          <li>The data type used in the list of input to the mappers. In the tables below, the <b>Input</b> is a list of this type. (E.g., if it's a <i>number</i>, then the input to the MapReduce is a list of <i>numbers</i>.)</li>
+          <li>The data type that is the output of the reducers, shown as <b>Output</b> below, because it's reported value of the entire MapReduce process.  In this simplified model, this type is the same as the output of the mappers, which is the same as the input to the reducers. </li>
+        </ol>
+      </li>
+      <li>Another way to think about it -- what if the original list were of length 1? The mapper would do its job, and return something. But, since it's the only mapper needed, its output has to match the desired output of the MapReduce call, so every mapper always has to return the same  output (type, formatting, etc) as is desired (from the result of the reducing phase).</li>
+      <li>Here's the most important part of this, so read the following over a few times so you understand: <strong>Thanks to Abstraction, running a MapReduce on your computer should be indistinguishable from running MapReduce on a cluster of a million computers (except hopefully the latter is faster).  You shouldn't need to worry about that when you're writing your MapReduce code. So, for this lab, we're going to make sure you understand how to write MapReduce programs for one computer, and later when BYOB allows us to easily support automated, distributed computing, the internals of MapReduce will change to send your program to a cluster, but your programs won't have to!</strong></li>
+      <li>How does it work? It's exactly as we describe; we send the results of mapping over a list to a reducer (block 
+interface and definition shown below).</li>
+    </ul>
+  </li>
+</ul>
+
+<p align="center">
+  <img src="images/MapReduceSignature.gif" width="188" height="22" alt="MapReduce Signature" /><br /><br />
+  <img src="images/MapReduceDefinition.gif" width="322" height="103" alt="MapReduce Definition" />
+</p>
+
+<h2>Let's start solving problems with MapReduce!</h2>
+<p>To get started, load up our finished project, <a href="byob/MapReduce.ypr"><code><strong>MapReduce.ypr</strong></code></a>. Your screen should look like this:</p>
+<p align="center"><img src="images/MapReduceScreen.png" width="480" height="359" alt="Startup splash Screen for MapReduce BYOB project" /></p>
+<p align="left">Now, click the green flag to get started and initialize the system. After that, you can type any number 1-5 to run one of the five MapReduces below, and '<code>r</code>' to reset to the initial state. We've given you all the answers, so you can see and understand what the problem is asking you to do and what the expected output is. </p>
+<p align="left">By the way, the word <em>Domain</em> means 'input', and the word <em>Range</em> means 'output'.</p>
+<h2 align="left">Your first MapReduce : a simple sum-of-squares (we did it for you)</h2>
+
+    <ul>
+      <li>We're going to start by showing you how we do a really easy one, and work up to some hard ones. This problem involves finding the sum of squares of some numbers. E.g., 1<sup>2</sup> + 20<sup>2</sup> + 3<sup>2</sup> + 10<sup>2</sup> = 510 (nice area code, eh?)</li>
+    </ul>
+    <table width="100%" border="1">
+      <tr>
+        <th scope="col">Problem</th>
+        <th scope="col">Input</th>
+        <th scope="col">Map Domain</th>
+        <th scope="col">Map Range</th>
+        <th scope="col">Map Function</th>
+        <th scope="col">Binary reducer function</th>
+        <th scope="col">Output</th>
+      </tr>
+      <tr>
+        <td align="center">A sum of squares of numbers</td>
+        <td align="center">numbers, each one a different list element</td>
+        <td align="center">number</td>
+        <td align="center">number</td>
+        <td align="center">square</td>
+        <td align="center">+</td>
+        <td align="center">a single number</td>
+      </tr>
+    </table>
+<p>...and here's what it looks like when we do it: </p>
+    <p align="center"><img src="images/SumOfSquaresMR.png" width="331" height="105" alt="Sum-of-squares MapReduce" /></p>
+   Let's note a couple things:
+   <ul>
+   <li>First of all, both mapper and reducer are <em>reporter</em> blocks, so we need to wrap them in grey borders so they pass in the functions themselves as data, not the results of calling multiply and addition on two empty inputs (i.e., 0). We prefer this abbreviated style, but we could also have used the <img src="images/TheBlock.gif" width="98" height="16" alt="The _ Block" /> blocks and NOT used the gray borders like this (this should be review for you, btw).</li>
+</ul>
+   <p align="center"><img src="images/SumOfSquaresMRtheblock.png" width="320" height="105" alt="Sum Of Squares using The Block" /></p>
+   <ul>
+     <li>The mapper should take a single number as input, but what we've used for simplicity is just the  <img src="images/Multiply.gif" width="49" height="18" alt="Multiply" /> block, which has two inputs. You also recall that BYOB, given a function of two inputs but with only one input (each element  in Map's input list in this case) will just copy the input to all the fields, making it a nice, effective square procedure.</li>
+     <li>As we go through more detailed examples, we're going to want to write a <em>mapper</em> and <em>reducer</em> funtions as separate and defined blocks, so for good code management, we're going to define a sprite per MapReduce problem, each of which has a <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" />, with the answers already filled in. Once you understand what the problem is, first edit the  <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> block, delete its body, and see if you can recreate it. Once you've got a working <img src="images/mapper.gif" width="69" height="18" alt="mapper" />, do the same with the <img src="images/reducer.gif" width="87" height="18" alt="reducer" />. That way, you'll always have a working system. Note that we've written  a lot of helper functions to make your life easier. Feel free to use the <code>Scripts</code> area of each sprite for debugging. When you're done with each of these, compare your answer with ours.</li>
+   </ul>
+<h2>Your second MapReduce : <em>Alpha</em>, the first word in the dictionary</h2>
+   <p>We're going to start easy and tell you how to write your mapper and reducer. In fact, this problem is so easy, it just requires you to write the reducer, since the mapper is the same as the identity <img src="images/id.gif" width="35" height="18" alt="id" />! (I.e., the mapper just passes its input through, untouched, and the reducer has to do all the work!). Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Alpha</code> sprite and test it.</p>
+   <table width="100%" border="1">
+     <tr>
+       <th scope="col">Problem</th>
+       <th scope="col">Input</th>
+       <th scope="col">Map Domain</th>
+       <th scope="col">Map Range</th>
+       <th scope="col">Map Function</th>
+       <th scope="col">Binary reducer function</th>
+       <th scope="col">Output</th>
+     </tr>
+     <tr>
+       <td align="center">The first word in the dictionary in all of Shakespeare's works</td>
+       <td align="center">All of Shakespeare's works, each word a different list element</td>
+       <td align="center">word</td>
+       <td align="center">word</td>
+       <td align="center">identity</td>
+       <td align="center">Take two words and return the earlier word in the dictionary</td>
+       <td align="center">a single word</td>
+     </tr>
+   </table>
+   <h3>Quiz: what kind of pattern was <em>Alpha</em>?</h3>
+   <p>From 10 miles up, what kind of pattern was that entire MapReduce operation? (answer at the end)</p>
+   <ol>
+     <li>mapping</li>
+     <li>finding</li>
+     <li>counting</li>
+     <li>filtering</li>
+     <li>testing</li>
+     <li>combining</li>
+   </ol>
+<h2>Your third MapReduce : <em>Love</em>, All the Beatles song titles with the word &quot;love&quot; in it</h2>
+<p>Hopefully that last one wasn't too bad. This one is a little harder because you have to write both the 
+mapper and reducer. The idea is you've got a huge set of data and you need to keep only the ones that match. 
+Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Love</code> sprite and test it.</p>
+   <table width="100%" border="1">
+     <tr>
+       <th scope="col">Problem</th>
+       <th scope="col">Input</th>
+       <th scope="col">Map Domain</th>
+       <th scope="col">Map Range</th>
+       <th scope="col">Map Function</th>
+       <th scope="col">Binary reducer function</th>
+       <th scope="col">Output</th>
+     </tr>
+     <tr>
+       <td align="center">All the Beatles song titles with the word &quot;love&quot; in it. This is effectively a &quot;filter&quot; operation, removing all the list elements that don't match.</td>
+       <td align="center">All of the Beatles song titles, each song title a different list element</td>
+       <td align="center">Song title (sentence)</td>
+       <td align="center">a list of  the song title; or an empty list</td>
+       <td align="center">Look for the word &quot;love&quot; in the title, if it's there, return title as a one-element  list, otherwise return the empty list</td>
+       <td align="center">Merge all the lists together that the mappers (and other reducers) return into one big list</td>
+       <td align="center">Same form as the input: a list of song titles, except each one has the word &quot;love&quot; in it.</td>
+     </tr>
+</table>
+   <h3>Quiz: what kind of pattern was <em>Love</em>?</h3>
+<p>From 10 miles up, what kind of pattern was that entire MapReduce operation? (answer at the end)</p>
+   <ol>
+     <li>mapping</li>
+     <li>finding</li>
+     <li>counting</li>
+     <li>filtering</li>
+     <li>testing</li>
+     <li>combining</li>
+   </ol>
+   <h2>Your fourth MapReduce : <em>WordCount</em>, a count of the number of times words appears</h2>
+   <p> This one is quite a bit harder because of all the list manipulation. The idea is you've got a huge corpus of data and you want to count all the times words appear. Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> WordCount</code> sprite and test it.</p>
+   <h3>A quick aside on writing lists on paper...</h3>
+   <p>Remember the Midterm handout &quot;Writing Scratch/BYOB code on Paper&quot;? Well, we're going to add something to it. When you want to write a list of things,   write them with an open parenthesis, then the first item, second item, etc (separated by spaces) and when you're done,  put a closed parenthesis. If any of your items are a sentence, you have to put quotes around the sentence. So, for example, the list of three things:</p>
+   <p align="center"><img src="images/rights.png" width="183" height="113" alt="rights" /></p>
+   <p>...would be written as the equivalent 3-element-list: <code>(life liberty &quot;pursuit of happiness&quot;)</code>. Similarly, a nested list just shows up as a nested set of parenthesis. E.g.,</p>
+   <p align="center"><img src="images/LoveHateThe.png" width="142" height="323" alt="LoveHateThe" /></p>
+<p>...would be written as <code>((Love 5) (Hate 4) (The 10))</code>. We mention this because we've used this short-cut below. Now, on to the problem.</p>
+<table width="100%" border="1">
+  <tr>
+    <th scope="col">Problem</th>
+    <th scope="col">Input</th>
+    <th scope="col">Map Domain</th>
+    <th scope="col">Map Range</th>
+    <th scope="col">Map Function</th>
+    <th scope="col">Binary reducer function</th>
+    <th scope="col">Output</th>
+  </tr>
+  <tr>
+    <td align="center">For every word in Shakespeare's works, the number of times it occurs. E.g., <code>((Love 123) (Hate 4) (the 25231) etc)</code></td>
+    <td align="center">All of Shakespeare's works, each word a different list element</td>
+    <td align="center">word</td>
+    <td align="center">A list of a list of two elements, the word and 1. This is the same as the format of the final mapreduce output if shakespeare would have only written one word. E.g., <code>((Love 1))</code></td>
+    <td align="center">Make a list of a list of the input word and the number 1</td>
+    <td align="center">Take two lists of words and their counts and merge them. E.g., <code>((Hate 4) (Love 3))</code> and <code>((Love 2) (The 10))</code> merge to <code>((Love 5) (Hate 4) (The 10))</code></td>
+    <td align="center">a single list of lists, with each inner list a unique word and its count</td>
+  </tr>
+</table>
+<p>Here are some tips on how to get started with <em>WordCount</em>:</p>
+<ol>
+  <li>Start with the <code>mapper</code> as always.</li>
+  <li>We've provided the <code>MakeWordCount</code>, <code>GetCount-from-WordCount</code>, and <code>GetWord-from-WordCount</code> helpers. Use them as needed.</li>
+  <li>When writing your <code>reducer</code>, think about the general case of combining two lists as in the example above. <em>Hate</em> is only in the first list. <em>The</em> is only in the second list. <em>Love</em> is in both lists. How do you merge these two lists?</li>
+  <li>We found it useful to write the helper <code>GetCount-of-Word-()-from-List</code> ... feel free to use this when writing <code>reducer</code>, but make sure you could write this on your own too.</li>
+</ol>
+<h2>Extra for Experts : the fifth MapReduce ... <em>Google</em>, building a Google-like index</h2>
+<p>  The idea here is you've got a huge set of webpages (URLs) and webpage-content and you want to create a huge table indexed by each word that shows you what URL the word is in. Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Google</code> sprite and test it. <em>Hint: This problem is very similar to WordCount</em>.</p>
+<table width="100%" border="1">
+  <tr>
+    <th scope="col">Problem</th>
+    <th scope="col">Input</th>
+    <th scope="col">Map Domain</th>
+    <th scope="col">Map Range</th>
+    <th scope="col">Map Function</th>
+    <th scope="col">Binary reducer function</th>
+    <th scope="col">Output</th>
+  </tr>
+  <tr>
+    <td align="center">Google simulation! Given web pages (URLs) and data, create a massive reverse-lookup-table, that allows us to quickly query, given any single word, what webpages it was on.</td>
+    <td align="center">The input is a list of lists. The first element in each inner list is the web page address, the second element is the content of the webpage</td>
+    <td align="center">Two-element list, the web page address and the text of the web page</td>
+    <td align="center">A list of   lists, where the inner list has the word as the first element and all the URLs that have the word as followup elements. E.g., if the input were: <code>(&quot;hamlet&quot; &quot;to be or not to be&quot;)</code>, the output would be <code>((to hamlet) (be hamlet) (or hamlet) (not hamlet))</code></td>
+    <td align="center">For every unique word in the webpage, make a list of the word and the URL. Return a list of all these pairs.</td>
+    <td align="center">Take two lists of words and their counts and merge them. E.g., Given<code> ((to hamlet) (be hamlet) (or hamlet) (not hamlet))</code> and <code>((to webster) (wit webster))</code>, it would return <code>((to hamlet webster) (be hamlet) (or hamlet) (not hamlet) (wit webster))</code></td>
+    <td align="center">a single list of lists, with each inner list a unique word as the first element and the URLs that contain the word as the following elements.</td>
+  </tr>
+</table>
+<h2>Answers to the quizzes:</h2>
+<ul>
+  <li><em>Alpha</em> is a finding pattern</li>
+  <li><em>Love</em> is a filtering pattern</li>
+</ul>
+<p></p>
+<p></p>
+</body>
+</html>

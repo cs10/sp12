@@ -1,0 +1,112 @@
+Brian Harvey's answers to the intro questions:
+
+WHERE DID YOU GROW UP? WHAT WAS YOUR PATH TO CAL? 
+
+Manhattan (98th Street, not far from Columbia University).  MIT undergrad
+(theoretically in math, but I really majored in the radio station and the
+Artificial Intelligence Lab).  Various cool jobs, including writing one of the
+first programs that could typeset math formulas, Atari Research, and a short
+consulting job at Lucasfilm (not making movies, doing system programming for
+the Editdroid video editor).  Two years in Paris as sysadmin at a computer
+music research center.  Grad school at Stanford and Berkeley.  Set up a
+kid-run computer center at a high school in Massachusetts, which was the most
+fun and most intense of all.  Started teaching at Cal in 1987, recruited by
+Mike Clancy, who was a former housemate when we were grad students at
+Stanford.
+
+HOW MUCH PROGRAMMING HAVE YOU DONE (& WHAT LANGUAGES)?
+
+Way too much, starting with a course in Fortran programming at a Saturday
+program for high school kids at Columbia (where I also took several advanced
+math courses -- it was and is an amazing opportunity; look up "Science Honors
+Program" in Wikipedia).  We would write a program, enter it onto punch cards,
+hand it in, and get the result *a week later*!  Often that result was an error
+message about a misplaced comma, or something like that.  It was very
+frustrating!
+
+After that I learned the low-level machine language for the IBM 7094, the
+most popular computer at science research labs at the time, then the machine
+language for the DEC PDP-10, my favorite computer ever, then Lisp.  Much
+later I learned C.  I've never actually programmed in Java, the language
+everyone seems to use these days.
+
+Along the way I dabbled in other languages including Snobol, Cobol, and APL.
+But the most important one, for my later career, was Logo, a language for
+kids that was developed around MIT near the end of my undergraduate years.
+That was one of the things that got me into teaching.  Scratch, the language
+we use in this class, is a descendent of Logo.
+
+WHAT ARE YOUR HOBBIES?
+
+I collect art.  Not famous dead artists; most of my collection is local
+artists whose work I discover during the wonderful annual Open Studios
+events in the east bay, in San Francisco, and on the peninsula.  But I also
+try to pick up artworks as souvenirs of everyplace I visit, including
+Australia and several European countries.  Some of my favorite artists are at
+
+	http://www.cs.berkeley.edu/~bh/art.html
+
+I have recently discovered that you can buy art on eBay, which is very
+dangerous to my budget!
+
+I'm a big fan of 1964-1968 British rock.
+
+I spend two days a week volunteering at Thousand Oaks elementary school,
+near where I live in north Berkeley.  During the school day I just help out
+with whatever the class is doing, and then after school I teach a Scratch
+class for 4th and 5th graders, who are cuter and more energetic than Cal
+students, but not as intellectually developed -- it's a tradeoff.
+
+WHAT ARE SOME OF YOUR TALENTS & SKILLS? 
+
+I can bend down the first (outer) knuckle of most of my fingers while keeping
+the second knuckle straight, the result of lots of practice as a child.
+
+I'm pretty good at debugging programs.  (Mike Clancy, who's much more into
+planning than I am, characterizes my programming technique as "debugging a
+blank piece of paper.")
+
+HAVE YOU DONE ANYTHING REMARKABLE? HAS ANYTHING MEMORABLE 
+HAPPENED TO YOU? 
+
+I think the most remarkable thing I've done was that high school computer
+center.  For a few years we had an amazing, intense, hardworking, supportive
+community of kids and teachers; 25 years later my best friends are still
+four teachers and about 40 kids who were part of it.  We gave kids keys to
+the room, and they were in there unsupervised evenings and weekends, and
+none of the equipment was ever stolen or broken as a result.  One of my
+favorite stories is about the time I wanted to get some programming work
+done at the school without interruption, so I came in on a Sunday morning --
+but all the terminals were in use!  And, just as I was walking in, one kid
+said to another kid, "I hate school!"  I was ROTFL.
+
+I guess writing my books was remarkable.  I wrote the three-volume
+"Computer Science Logo Style," intended for teenagers, and then later
+co-wrote "Simply Scheme," the CS 3 text, with Matt Wright, who was at the
+time an undergraduate and a TA in CS 61A.  You can read all of those on
+my web page, too.
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS SEMESTER?
+
+"Cycles"?  Who wrote these questions, anyway?
+
+I'm teaching or co-teaching four different courses this semester: this one,
+the 500-student CS 61A (the first course for majors), a new version of my
+Social Implications of Computers class, and the how-to-be-a-TA course for
+first-time CS TAs.  Between that and the Thousand Oaks gig, I should keep
+pretty busy.
+
+I'm also on the Committee on Admission, Enrollment, and Preparatory Education
+of the Berkeley Faculty Senate.  We don't do the actual admissions process,
+which is done by full-time admissions staff, but we do set policy.  Since I
+joined the committee last year, my goal has been to eliminate the extra GPA
+point that we give for AP courses, as a first step toward de-escalating the
+college admissions wars.  High school kids are under so much pressure these
+days; I don't think I could be admitted to Cal today based on my high school
+record, even though it was quite good by the standards of those days.  Kids
+are abusing stimulants, not for pleasure, but to be able to stay up all night
+to get their homework done.  The result is that a lot of really smart kids end
+up not actually interested in anything, which is tragic.
+
+Oh, and I work on Berkeley Logo, a free implementation of Logo, along with
+a bunch of undergraduate collaborators.

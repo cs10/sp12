@@ -1,0 +1,24 @@
+WHERE DID YOU GROW UP? WHAT WAS YOUR PATH TO CAL?
+
+I grew up here in the East Bay, in a small town called Clayton.  It's
+basically a cowboy ghost town; the only thing that's left of it is the
+saloon (double doors and everything).  I went to Clayton Valley High
+School in the neighboring city of Concord, and came to Berkeley when
+I graduated in 2008. 
+
+HOW MUCH PROGRAMMING HAVE YOU DONE (& WHAT LANGUAGES)?
+
+I've programmed in Scheme, Java, C, Python, C++, SQL, HTML, Javascript,
+MATLAB, LabView, Scratch, and BYOB.
+
+WHAT ARE YOUR HOBBIES?  WHAT ARE SOME OF YOUR TALENTS & SKILLS?
+
+I enjoy traveling, watching movies, playing basketball, cooking, and
+playing video games.   
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS SEMESTER?
+
+In addition to lab assisting for CS10 this semester, I am currently taking
+a class in Databases (CS186) and Introduction to Astrophysics (Astronomy 7A),
+working as a tutor in the Self-Paced Learning Center, and helping out the
+Berkeley branch of IEEE as the Director of Marketing.

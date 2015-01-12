@@ -1,0 +1,78 @@
+WHERE DID YOU GROW UP? WHAT WAS YOUR PATH TO CAL?
+
+I grew up in The Bronx, NY ("You got a problem with dat?" -- that's
+how they talked in my old neighborhood, no joke) until I was 9. The
+Bronx is one of the 5 Boroughs of New York City, if you didn't know. I
+moved to Westchester (suburb of New York) for a year and then upstate
+to a small town near Cooperstown, NY (where the Baseball Hall of Fame
+is located). I graduated from Cooperstown Central High, went on to MIT
+where I got a double major in CS and EE and graduated in 5 years. Then
+I came to Cal as a grad student, did a MS in Game Theory in 1995 and a
+PhD in Graphics in 2000 and joined the faculty in 2000.
+
+HOW MUCH PROGRAMMING HAVE YOU DONE (& WHAT LANGUAGES)?
+
+I started with Basic in high school in 1985. At MIT I learned Scheme
+(in the class CS61A was modeled after, taught by the authors of SICP)
+and C. When I got to Berkeley, I learned Tcl/Tk, Java, Python, Unix,
+Matlab, Mathematica, html & perl.  My current favorite language is
+Python, definitely.
+
+WHAT ARE YOUR HOBBIES?
+
+With two little ones, I no longer have time for hobbies. Their hobbies
+are my hobbies, i.e., going to parks, playgrounds, museums, and biking
+around. I've gotten more into photography and videography, because
+that's something I can do with them.
+
+However, before I had kids my hobbies were: puzzles, games, golf,
+basketball, ultimate, animation, juggling, programming, classic comedy
+sketches, movies, genealogy, and sharing jokes.
+
+WHAT ARE SOME OF YOUR TALENTS & SKILLS?
+
+I can juggle 5 balls, ride a unicycle (poorly), spin things on my
+finger, play the harmonica and congas badly (though I can't read
+music), recite entire Monty Python sketches, hit a golf ball 275 yds
+(though I have yet to break 90!), do an L hang, and wiggle my ears.
+
+HAVE YOU DONE ANYTHING REMARKABLE? HAS ANYTHING MEMORABLE HAPPENED TO YOU?
+
+In high school, I tied the school record in the 200m dash (23.2 s) and
+I was the fastest rapid calculator in central NY (~100 high schools).  
+My high school basketball team went to the state final four game, and
+our team was recently inducted to our high school athletic hall of fame!
+A few years ago I lived in Melbourne, Australia for 5 months, and
+I climbed half-dome a few years ago.
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS SEMESTER?
+
+In addition to this class, I'm also teaching CS302 (Designing Computer
+Science Education) and running the self-paced courses.  I run the
+GamesCrafters undergraduate computational game theory undergraduate
+research and development group.  I supervise two awesome DeCals:
+UCBUGG and MS-DOS X.  I'm the director of the Weiner Lecture Archives
+project.  I'm on the undergraduate study committee, and I do EECS and
+L&S faculty advising. I'm coordinating the development of CS10w (CS10
+online) to launch Fa12.  I'm on the ACM Education Board and Council
+and the chair of a task force that is trying to launch a new Web 2.0
+collection of "Technology for Computing Educators".  I'm involved with
+the continuing development of the Ensemble NSDL computing portal with
+my awesome grad student (and your TA) Luke. I run summer professional
+development for high school teachers (teaching them CS10) through two
+National Science Foundation (NSF) grants totalling about a million
+dollars.  I'm co-guest-editor of the Transactions of Computing
+Education (TOCE) special issue on concurrent, parallel, and
+distributed computation.  I'm on the CollegeBoard's AP Computer
+Science Principles Advisory Board. I'm on the GRE Computer Science
+Committee to author questions for the next CS GRE.  I'm faculty
+advisor for our local Eta Kappa Nu chapter.  I'm a faculty co-advisor
+for BFOIT, and I'm active in my local PTA.  I'm one of three faculty
+champions for our local CSTA chapter for high school teachers that
+meets once a month, and run CS4HS workshops with Colleen Lewis every
+summer.  I've got a 2-hour commute each way (1 hr on BART and time to
+drop-off or pick-up my little one from school).  Finally, and most
+importantly, I've got a wonderful wife, a 6-yr old son (in 1st grade)
+and a 3-yo daughter with whom I try to spend as much time as possible. 
+
+Phew!

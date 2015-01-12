@@ -1,0 +1,35 @@
+WHERE DID YOU GROW UP? WHAT WAS YOUR PATH TO CAL?  
+
+I grew up in Tampa, Florida my entire life. I attended Robinson High School
+(which you've probably never heard of). Currently, I am an undergraduate student
+at UC Berkeley, majoring in EECS (Electrical Engineering & Computer Science). I
+came to CAL with no programming experience, and declared my major once I took
+CS10 and CS61A (Great classes!)
+
+HOW MUCH PROGRAMMING HAVE YOU DONE (& WHAT LANGUAGES)?  
+
+My first programming language was Scratch in CS10 last Fall semester. I also
+took CS3S (Introduction to Symbolic Programming -> Not offered anymore) learning
+Scheme, a dialect of Lisp. After my first semester, I became engulfed in the
+programming language world, and began learning some other languages on the side,
+such as Unix, SQL, HTML, and CSS. While I interned at Yahoo! over the summer, I
+learned extensive PHP, Javascript and Drupal Development.
+
+WHAT ARE YOUR HOBBIES? WHAT ARE SOME OF YOUR TALENTS & SKILLS?  
+
+My hobbies include trying new restaurants, playing tennis, pranking my
+roommates, online sports gaming (NBA 2k11), and playing Scrabble or Words with
+Friends.  Think you're pretty good? Add me on WWF: sam1rm (Disclaimer: I've only
+lost twice!)
+
+HAVE YOU DONE ANYTHING REMARKABLE? HAS ANYTHING MEMORABLE HAPPENED TO YOU?  
+
+I've wandered off in Cozumel, Mexico while I was 12, lost track of time, and had
+the entire cruise + cops searching all over for me!
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS SEMESTER?
+
+Aside from TAing CS10, I will be taking 18 credits (CS61B, Math 54, South Asian
+Studies R5A, Art 23AC, + Teaching CS concepts class). My other activities
+include: CS Education Research w/ Professor Dan Garcia, working part-time for a
+start-up in SF, and being the web developer for the Berkeley Political Review.

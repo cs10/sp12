@@ -1,0 +1,80 @@
+
+.page {
+   font-family: Helvetica;
+   margin: 0 auto;
+   width: 70%;
+}
+
+/* Header stuff */
+.header {
+   background-color: #777777;
+   border: 2px solid black;
+   margin: 0 auto;
+   padding: 4px;
+   text-align: center;
+
+   -moz-border-radius: 15px;
+   border-radius: 15px;
+
+   color: white;
+   line-height: 20px;
+}
+
+.header h1 {
+   font-size: 50px;
+   margin: 30px;
+}
+
+.header h3 {
+   font-size: 17px;
+}
+
+/* Body */
+.mainbody {
+
+}
+
+.mainbody .intro {
+   text-align: center;
+   margin: 0 auto;
+}
+
+.mainbody .column {
+   float: left;
+   width: 38%;
+   padding: 1%;	
+   height: 450px;
+   margin: 0 4% 0 4%;
+   text-align: center;
+   
+   border: 1px solid black;
+   -moz-box-shadow: 6px 5px 5px black;
+   -webkit-box-shadow: 6px 5px 5px black;
+   box-shadow: 6px 5px 5px black;
+}
+
+.mainbody p {
+   font-size: 15px;
+}
+
+.mainbody li {
+   font-size: 15px;
+}
+
+.calendar table {
+   font-size: 12px;
+   text-align: center;
+}
+
+.calendar th {
+   border: 1px solid black;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+}
+
+.calendar td {
+   width: 18%;
+   border: 1px solid black;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+}

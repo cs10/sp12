@@ -1,0 +1,55 @@
+CS 10: Beauty and Joy of Computing
+
+Term Paper
+
+	Each student will write a 3-to-5 page paper on a topic broadly related
+to one of the lecture topics (abstraction, games, AI, graphics, programming
+paradigms, applications, social implications, recursion).  The paper should
+not be a reworking of the actual lectures, but should explore another aspect
+of one of the topics.
+
+	Here are some example topics.  In the past, students have felt
+the need to choose one of these; in fact, these were just the result of
+a staff brainstorm.  Please try to think of your own question before
+falling back and choosing one of the questions listed below.
+
+* Statistical methods in artificial intelligence
+* Military uses of computers
+* History of the Internet
+* Alan Turing and the Enigma cypher
+* Computer-based models of human cognition
+* Violence in video games
+* Educational video games
+* Privacy implications of GPS-enabled cell phones
+
+	DUE WEDNESDAY 11/3:  A half-page to one-page (single spaced) paper
+topic proposal.  Try to make the topic narrow enough so that you can actually
+do it justice in a short paper.  Also include the beginning of a bibliography
+(two or three sources of information you'll read).  The sources may not all be
+web pages!  Don't just use Google to produce the bibliography.  Instead, try
+melvyl.berkeley.edu (the UC library catalog).
+
+        You may find websites like Wikipedia useful to narrow down your topic,
+but do not pick a topic where the resulting paper can be a mere "copy-and-paste"
+of the content of a Wikipedia article.  You can, however, use Wikipedia
+articles as starting points to branch out to other sources and topics; many
+Wikipedia articles cite the sources that they use.
+
+	We'll meet with you that afternoon to go over your proposals.
+We may have suggestions about narrowing your topic, or about good sources to
+add to your bibliography.
+
+	DUE FRIDAY 11/12:  The complete 3-to-5 page paper (double spaced).
+
+Your paper can be entirely factual (e.g., here's the history of early
+computers), or you can stake out an opinion on some topic (e.g., the
+convenience of GPS-enabled cell phones is worth the loss of privacy),
+but if you present an opinion, we'd like some evidence that you have
+read and understood the arguments on the other side.
+
+Grading standard:
+
+10 points	paper proposal
+20 points	paper is coherent, on topic, and well-researched
+20 points	topic deepens your understanding of CS big ideas
+10 points	presentation: grammar, paragraph structure, etc.

@@ -1,0 +1,63 @@
+WHERE DID YOU GROW UP?  WHAT WAS YOUR ACADEMIC PATH?
+
+I was born in India, but I pretty much grew up in Fremont, California, which is
+a brisk Bart ride away from Berkeley. I went to a really competitive public high
+school (Mission San Jose High, you may have heard of it. I think it sends the
+most students to Cal from a single school). So yeah, I had my fair share of
+exposure to a competitive academic atmosphere before getting here, but Berkeley
+has definitely been a huge step up in terms of the challenge.
+
+HOW MUCH PROGRAMMING HAVE YOU DONE?  WHAT LANGUAGES?
+
+I took CS10 in the fall of 2010 (also the first time it was offered), and that
+was my first time programming! To be fair, I've been a computer junkie my whole
+life, and I did a small amount of web design in high school. And actually back
+in my elementary school days, I programmed a turtle to move across the computer
+screen in a language called Logo. My first year at Berkeley, I picked up
+Scratch, BYOB, and Scheme. This past summer I learned Perl during an internship,
+and I am now learning Java, thanks to CS61B.
+
+WHAT ARE YOUR HOBBIES?
+
+Let's see...I love basketball, both playing and watching. I also like long runs. I
+enjoy watching movies, including Hollywood and Bollywood. I also like making
+short videos once in a while. I love messing around with and exploring
+technology, and I am huge junkie for Apple devices. I also like to read, but a
+lot of what I read happens to be short form content on the web (I have 40-50+
+blogs on my Google Reader)...Yet, my iPad hasn't quite yet replaced my occasional
+desire for a nice paper book.
+
+WHAT ARE SOME OF YOUR TALENTS AND SKILLS?
+
+I have a fair amount of skills revolving around technology: graphic design,
+video editing, fixing computers, and general computery stuff. I've also been
+shooting and editing video for almost 6 years. Some of the softer skills I like
+to think I have: empathizing with others, turning complexity into simplicity,
+coming up with cool ideas, and working with kids.
+
+HAVE YOU EVER DONE ANYTHING REMARKABLE?
+
+The accomplishment I am most proud of is the school-wide television station that
+I co-founded during my senior year of high school. When I started the station
+with my good friend Jerry, it was basically a team of videographers, anchors,
+and journalists, going to every school event and filming each of them, and then
+creating a 12 minute show to be shown in every classroom at my school. The best
+part: in the 2 years since I graduated, the TV station has gone on to become a
+full-fledged on-campus organization, rivaling the school newspaper, and is
+complete with a 15-person manager team running the show. There's a lot of
+satisfaction to be gained from being able to look at something alive and making
+impact, and saying, "Hey, I started that!"
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS TERM?
+
+Looks like this is shaping up to be a pretty busy semester. Aside from a few
+pretty heavy courses, including CS61B and EE20, I'm also taking UCBugg, where
+will I learn how to animate a short film. I'm also working at Rescomp this year,
+which is pretty awesome - I'm getting paid to fix people's computers, something
+I've done for free for my whole life! In addition, I'm also interning at the
+site http://www.iwillteachyoutoberich.com/ - working with someone I greatly
+admire. Oh and I might try out for a Bollywood dance team, but we'll see where
+that goes. ;)
+
+And as for CS10, I am a reader and also a Co-TA, teaching a section with Samir
+and Max. 

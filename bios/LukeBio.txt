@@ -1,0 +1,29 @@
+WHERE DID YOU GROW UP?  WHAT WAS YOUR ACADEMIC PATH?
+
+I was born in raised in a small farming town in the middle of South Carolina.  I lived there for 10 years, developed a stunningly noticeable southern accent, and then moved down to Beaufort, SC where I lived until moving to California.  Beaufort was by the beach and was a bit more exciting of a place, and I developed interests in a number of sports and other sorts of activities while I lived there.  I lived in California last summer for an internship with IBM and have also lived in Florida (for a summer) and Australia (for a semester) since I started college.
+
+After graduating from Clemson University last December, I took a semester off and did things that I put off during college like working on personal projects, going camping, and backpacking through Europe.  I applied to Cal after seeing their dedication to computer science education and the active human-computer interaction lab, both of which are central to the work I'm doing here. 
+
+HOW MUCH PROGRAMMING HAVE YOU DONE?  WHAT LANGUAGES?
+
+I became interested in computers really early in the game -- probably around age 7 or 8.  We got our first computer at home that year and my mom showed me how it works (very ironic considering how many tech support calls I answer for her now!).  I didn't start programming until my freshman year in high school, though.  There was a class at my high school that taught C++ and I immediately fell in love with the thought process behind it.
+
+Since then, I've done a lot of programming and software engineering in school, industry, and personal projects.  I worked as a freelance web developer for a short time between finishing up with my undergrad program and starting grad school.  I've worked with a number of languages including C, C++, Java, Python, PHP, Matlab, Prolog, HTML/CSS, and Javascript.  
+
+WHAT ARE YOUR HOBBIES?
+
+There are a lot of things that I really like to do -- unfortunately, a lot of them get ignored or forgotten during the semester.  My favorite things to do are swimming, programming, soccer, ultimate frisbee, learning new things, understanding old things in new ways, reading, teaching, camping, and public speaking.
+
+WHAT ARE SOME OF YOUR TALENTS AND SKILLS?
+
+Talents and skills...hmm...a lot of my talents and skills overlap with my hobbies I suppose.  I consider myself to be a pretty competent programmer, a reasonably quick learner, and I think that I have a knack for explaining things to people.  Over the past couple of years (after lots and lots of practice) I've started to really like presenting information and I think that I've gotten to be pretty good at it as well.  I probably won't be taking Steve Job's...job...anytime soon though.  This may or not be true, but I also consider myself to be somewhat of an "idea guy": I enjoy (and am usually good at) coming up with new ways to do / teach things, although I have a mixed track record of actually bringing these ideas to life.
+
+HAVE YOU EVER DONE ANYTHING REMARKABLE?
+
+Of course, I think everyone has.  My chart toppers are (a) jumping out of a plane at 12,000 ft, (b) scuba diving on the Great Barrier Reef, (c) filing 4 patents, and (d) introducing other people to ideas that have opened their mind and changed their life.  I think everyone's done the last one to a degree, but it always fascinates me how influential the discovery of an idea can be.
+
+I also use a remarkable number of parentheses when I write unless I explicitly go back and edit them out.
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS TERM?
+
+I'm going to be a pretty busy guy.  I'm teaching two sections of CS10, taking classes, and starting up my masters project with Dan Garcia.  I also want to explore the Bay Area as much as possible since I haven't been around for long...camping and hiking are high on my list once I figure out my own schedule.  I'd also love to pick up an extracurricular activity or two (I'm currently debating between Toastmasters, water polo, improv comedy, and martial arts), but it might be another semester before I can get my ducks in a row for any of those.

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CS10 Concurrency Lab</title>
+</head>
+
+<body>
+
+<center><h1>CS10 Concurrency Lab</h1></center>
+
+<h2>Learning goals</h2>
+<h3>...from lecture that are reiterated and reinforced here</h3>
+<ul>
+  <li>History and motivation</li>
+  <ul>
+    <li>We want to build computers &amp; systems &amp; programming tools to solve (more of) the world's problems faster.</li>
+    <li>Since 1971, <a href="http://en.wikipedia.org/wiki/Moore's_law">Moore's law</a> guided the performance curve, which predicted exponential growth for years.</li>
+    <li>The performance curve flattened around 2002 because of <em>power wall</em>.</li>
+    <li>Basically, we couldn't cool these chips.</li>
+    <li>The idea came up that we could run many chips at lower speed, and <a href="http://www.gotw.ca/publications/concurrency-ddj.htm">the &quot;sea change&quot; for <em>multi-core</em> computing was born</a>. Parallel, baby!</li>
+    <li>Multi-core computing means that the central processing unit (CPU) will now have multiple workers (cores), each of which can take a simple processing task and compute something</li>
+    <li>It is a very exciting time to be in computing, because we get to rethink languages, systems, hardware, data structures, algorithms, as we move to a very parallel, multi-core world</li>
+    <li>The power of abstraction is that we don't care how the problem gets done, as long as it gets done. So, for most users, they don't need to know or care that their program was run on a multi-core machine (or even how many cores that machine had, 1, 2 or 1024)</li>
+    <li>All desktop and laptop computers sold today have at least one core in them, so that world is here ... now! (The CPUs in your handheld devices probably don't but may soon)</li>
+  </ul>
+  <li>In a perfect world</li>
+  <ul>
+    <li>With N workers, take a problem, divide it into N pieces, all workers work exactly equally fast and finish at exactly the same time, and the problem will be done in 1/N<sup>th</sup> the time</li>
+  </ul>
+  <li>In the real world</li>
+  <ul>
+    <li>Amdahl's law says there are serial parts of every problem which constrain the speedup = 1/s (s = % of code that's serial, assuming infinite workers)</li>
+    <li>Even assuming that there's no serial part of the problem, just the mechanics of solving a problem in parallel are difficult</li>
+    <ul>
+    <li>Time to think how to divide the problem up</li>
+    <li>Time to hand out small &quot;work units&quot; to workers</li>
+    <li>All workers may not work equally fast or be given equally hard work units, or one worker may take a loooong time</li>
+    <li>Some workers may fail (machines crash, hard drives fail, etc) -- usually more of a problem with distributed systems (different computers) than multi-cores (within the same computer)</li>
+    <li>There may be contention for shared resources while processing the work units which slows down efficiency (e.g., many cooks waiting for the same mixing bowl to be free)</li>
+    <li>You could have a case where workers are waiting for resources in a way that hangs the system (<em>deadlock</em>)</li>
+    <li>You could have a case where workers are overwriting each others' results (<em>race conditions</em>). This happens all the time to co-authors who are trying to write a paper together (who are not using Google Docs!) and two of them think that they have the current version, and A makes changes and submits, while B was also making changes to the original. When B submits his changes, A's changes will be lost.</li>
+    <li>You may have to wait until the last worker returns to proceed (the slowest / weakest link problem)</li>
+    <li>There's time to put the data back together in a way that looks as if it were done by one</li>
+    <li>Testing: The output may depend on the order of when the helpers returned their answer!</li>
+    <li>E.g., Your job was to square the numbers 1-10. You solicit 10 people to help and hand them all the numbers 1 through 10. Depending on many factors, they may give you their answers in any order, how do you verify that the overall answer is correct? It's not as easy as comparing to &quot;[1 4 9 ...], which is what you used to do when you did the work in serial.</li>
+    </ul>
+  </ul>
+</ul>
+
+<h3>...for this lab specifically</h3>
+<ul>
+  <li>In Scratch / BYOB what are the issues / facilities to do parallel work, and how does the machine work?
+    <ul>
+      <li>A single sprite has control blocks which appear to respond in parallel (e.g., multiple &quot;when green flag, do...&quot;, &quot;when space is clicked, do...&quot;, &quot;when I receive broadcast&quot;, etc.)</li>
+      <li>Multiple sprites only exacerbate the problem, and race conditions could occur (e.g., what if multiple sprites tried to paint the screen their color all at the same time?)</li>
+      <li>What happens when multiple signals are sent to the same &quot;when I receive broadcast&quot; block, do all get through? [yes if Broadcast and wait, no (but consistent) if Broadcast and Edit-&gt;Thread Safe Scripts checked, no (but inconsistent) if Edit-&gt;Thread Safe Scripts unchecked]</li>
+      <li>When we call &quot;launch&quot;, does that mean another worker starts up? [answer: yes and no]</li>
+      <li>The meta learning goal for this part is for you to develop an accurate mental model of how Scratch handles concurrency. This is so you avoid race conditions and deadlock, and so that you can fully exploit it to your benefit!</li>
+    </ul>
+</ul>
+
+<h2>Activities</h2>
+<h3>Background; fun sans-computer activities</h3>
+<ul>
+  <li>(Physical activity) With your partner, take turns at the following activity: shuffle cards,  sort them into A&clubs; K&clubs; Q&clubs; J&clubs; 10&clubs; ... 2&clubs; A&spades; K&spades;  ... 2&spades; A<font color="#FF0000">&hearts;</font> K<font color="#FF0000">&hearts;</font> ... 2<font color="#FF0000">&hearts;</font> A<font color="#FF0000">&diams;</font> K<font color="#FF0000">&diams;</font> ... 2<font color="#FF0000">&diams;</font> </li>
+  <li>(share) How fast did you do it? (Did you beat the <a href="http://www.recordholders.org/en/records/cardsorting.html">world record</a>?)</li>
+  <li>(share) Think about how fast you could do this if you had the whole class to help. What would your strategy be?</li>
+  <li>(class choice) Look at the other suggestions, and choose one, and predict how fast you could do it.</li>
+  <li>(Entire class activity) Get up and do it. Your TA will time you starting from when they hand your team the shuffled deck and ending when you hand them back the sorted deck. TAs record how fast you did  it. </li>
+  <li>(reflect) Discuss with your partner whether it was  as perfect as you thought it'd be. Do you think it would scale to 50 people?</li>
+  <li>(share) Share a non-computer, real-life example in which the serial portion of some task is smallest (i.e., embarassingly parallel) and greatest (i.e., most difficult to parallelize)</li>
+</ul>
+<h3>Scratch ... You got some speed, man?</h3>
+<ul>
+  <li>(display) Scratch supports parallelism! The programming environment is full of concurrency, implicit (two scripts  both start when the green flag is clicked, or when they receive the same broadcast message), and explicit (the launch block). Let's first explore the explicit kind, then we'll play with the implicit kind a bit. Let's try to use concurrency for what it was meant for; <em>speed</em>! Three important  models of the machine you should develop:
+    <ul>
+      <li>The first that Scratch is like a parent with lots of kids, the parent wants to give the kids equal attention. So if there are 3 things happening at one time, Scratch will rotate among the three of them, giving each of them a chance to do their &quot;thing&quot; (e.g., complete one iteration of a loop, say). It will choose the same order every time, in a very predictable way. This is known as <em>time-sharing</em>.</li>
+      <li>The second is that Scratch has a speed governor so that projects run the same speed on different machines. It's obvious why that's important -- imagine developing this great <em>Pac Man</em> game on your parent's slow computer and working very hard to get the timing just right so it's not too fast or slow. However, when you share it with others who have faster machines, it runs too fast to play (because the other computers have a faster &quot;heartbeat&quot;, the clock rate). So Scratch slows itself down on faster computers so that it always looks like it's running on the same, slow, computer. The reason this is relevant in the discussion of concurrency is that (on the vast majority of computers) Scratch spends a lot of time just sitting there, waiting, so it has lots of idle &quot;cycles&quot; to handle multiple things running at the same time.</li>
+      <li>The third is that Scratch actually does NOT make use of more than one core (independent hardware computation unit), it runs everything in one core and time shares any parallel task on the single core. This gives Scratch much more control over its parallelism, since once you decide to use two (or more) physical cores, you can no longer control when (or in what order) the computations will return, and you open up the standard Pandora's box of concurrency problems, like deadlock and race conditions. So your Scratch programs are insulated from these realities, allowing you to have predictable parallelism (usually impossible) at the cost of being able to run really fast and make use of hardware resources.</li>
+    </ul>
+  </li>
+</ul>
+<p align="center"><img src="images/LaunchTutorial.gif" width="181" height="437" alt="" style="border:none" /></p>
+<ul>
+  <li>(Scratch play) First, to understand the idea of two things happening at once, load up <code><a href="byob/LaunchTutorial.ypr">LaunchTutorial.ypr</a></code> (shown above). After you click the green flag, let it run for a bit, then hit the space bar once. Then hit it again, and again. Talk with your partner about what is happening, and why. (Answer: When you hit the green flag, Gobo starts off running in a circle,               because he's moving and turning at the same time. Now, whenever you hit the space key Gobo's circles become wider because he's moving <em>more</em> than before, and he only does that because his MOVE <em>threads</em> are increasing, not the number of steps per single move. I.e., Scratch initially gives equal time to its 2 &quot;forever&quot; children -- one that turns and one that moves 5 steps. So it's move, turn, move, turn, etc., yielding a (360/15 =) 24-sided polygon with 5-step sides. The next time space bar is pressed, another &quot;child&quot; is born, so now the three equal-time children are: &quot;turn&quot;, &quot;move&quot; and &quot;move&quot;, yielding a 24-sided polygon with 10-step sides, or a &quot;circle&quot; of twice the size)</li>
+  <li>(Scratch debug) When you put two &quot;When green flag ...&quot; hat blocks in the same sprite, both will run at the same time! Similarly, if multiple sprites all have &quot;When green flag...&quot; hat blocks, these will run concurrently as well. Load up <code><a href="byob/SerialVsParallelBuggy.ypr">SerialVsParallelBuggy.ypr</a></code>, and click the green flag. You'll see  one 'serial' gold square 10x10 sprite paint the area on the right by stamping itself. You'll also see two blue 'parallel' 10x10 sprites  sharing the labor of painting the area on the left by stamping themselves.  Two screenshots are included below, one during computation, and one after all three sprites have finished.
+    <ul>
+      <li>The first thing to note is that the parallel side finished in exactly half  the time of the serial side. Discuss with your partner why this is. </li>
+      <li>The second thing to note is that there is a slight concurrency bug. The first blue squares for the 1 and 2 sprites appear not to get stamped. Fix this bug so that there are no missing stamps, save the project as <code>SerialVsParallel.ypr</code> and submit it online.</li>
+    </ul>
+  </li>
+</ul>
+<p align="center"><img src="images/ParallelVsSerialStart.png" width="478" height="361" alt="" style="border:none" /></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/ParallelVsSerialEnd.png" width="480" height="361" alt="" style="border:none" /></p>
+<ul>
+  <li>(display) Reflection. It's important to form an accurate mental model of the machine/software when working with it. Hopefully you've seen here that Scratch gives equal time to all the workers (scripts), in lock step, and that concurrency bugs can creep up very easily.</li>
+</ul>
+<h3>Scratch ... Don't all talk at once!</h3>
+<ul>
+  <li>(display) Scratch supports parallelism! Let's explore some of the fun/challenges of concurrent programming, <em>nondeterminism</em>. In this context, this means we can't pre-determine what the results will be; <em>determinism</em> means we <em>could</em> predict what the outputs would be. One of the first exercises we always have parallel programming students do (in other languages) is to have a &quot;dispatcher&quot; start up 10 &quot;workers&quot; (other langauges typically call these <em>threads</em>), numbered 1-10, and all the workers do is shout out &quot;Hello from thread #i&quot; (where i is a number from 1-10). The neat thing that always results is that the result looks something like a random permutation of &quot;Hello from thread #i&quot; numbers, almost never in  order. Every time the program runs, a different order comes out. It's neat to see that, and realize when programming concurrently, we need to understand that (for many complicated reasons), the workers may take different amounts of time to return, so our computations shouldn't depend on their order (as the printing example did).</li>
+  <li>(Scratch modify) In the last Scratch exercise, it was a little artificial; the sprites were in lock step. Let's  take a look at a similar project, <tt><a href="byob/Determinism.ypr">Determinism.ypr</a></tt>.  Here four 60x60 sprites do the same thing (color the screen by stamping themselves through the <code>Fill Screen</code> command shown below), and once they finish, they add their name to the end of the <code>finish</code> variable. Run it a couple of times. Boring, right? That was because Scratch is still in lock step. Make a very small change to Fill Screen - have each sprite wait a random value between 1 and 1/10 seconds before stamping. (this involves the introduction of a very simple command right before the &quot;stamp&quot; call in <code>Fill Screen</code>: &quot;wait (1 / (pick random [1] to [10])) secs&quot;). Run it a few times; now what happens? (Answer: Four &quot;threads&quot; take off, and the slowest  (i.e., last) color at each time step is that one who colors that 60x60 square). Save this project as <code>NonDeterminism.ypr</code>.</li>
+</ul>
+<p align="center"><img src="images/FillScreen.gif" width="215" height="188" alt="FillScreen defintion" /><br />
+</p>
+<ul>
+  <li>(quiz) If we run the following Scratch program and answer &quot;yes&quot;, we note that <code>finish</code> is always <tt>123</tt>. What are the possible values of <code>finish</code> if we answer &quot;no&quot;? (we've shown the definition of <code>read and write finish with <em>n</em></code>) </li>
+</ul>
+<p align="center"><img src="images/racecondition.gif" width="1075" height="487" alt="" style="border:none" /></p>
+<ul>
+  <li>(Scratch play) Test your answer by running <code><a href="byob/RaceCondition.ypr">RaceCondition.ypr</a></code> several times, answering &quot;no&quot;. Compare with answering &quot;yes&quot;.</li>
+  <li>(display) Quiz Answer explained
+    <ul>
+      <li>The answer is: all the permutations of 1,2,3  where all 3 numbers present (= 6) + all the permultations of 1,2,3 where only 2 numbers present (= 6) + all the permutations of 1,2,3 where only 1 number present (=3) for a total of 15 possibilities.</li>
+      <li>If all three numbers present, it's as if we were deterministic. Here's how it could happen (for this example order, obviously all 6 permutations are possible  = {123,132,213,231,312,321}):
+        <ul>
+          <li>finish starts empty</li>
+          <li>1 reads finish (), joins its 1, finish is now 1.</li>
+          <li>2 reads finish (1), joins its 2, finish is now 12.</li>
+          <li>3 reads finish (12), joins its 3, finish is now 123.</li>
+          <li>finish is 123</li>
+        </ul>
+      </li>
+      <li>If only two numbers were present, we had a race condition, and here's how it could happen (again, all 6 combinations and permutations are possible = {12,21,13,31,23,32}):
+        <ul>
+          <li>finish starts empty</li>
+          <li>3 reads finish () into its hold</li>
+          <li>1 reads finish () into its hold</li>
+          <li>3 joins its 3 to the number it held (), finish is now 3</li>
+          <li>1 joins its 1 to the number it held () and sets finish to 1. The 3 is now lost, <em>clobbered</em> due to a race condition.</li>
+          <li>2 reads finish (1), joins its 2, finish is now 12.</li>
+          <li>finish is 12</li>
+        </ul>
+      </li>
+      <li>If only one number were present, we also had a race condition, and here's how it could happen (again, all permutations possible = {1,2,3}):
+        <ul>
+          <li>finish starts empty</li>
+          <li>1 reads finish () into its hold</li>
+          <li>2 reads finish () into its hold</li>
+          <li>3 reads finish () into its hold</li>
+          <li>3 joins its 3, finish is now 3</li>
+          <li>2 joins its 2 to the number it held () and sets finish to 2. The 3 is now lost, <em>clobbered</em> due to a race condition.</li>
+          <li>1 joins its 1 to the number it held () and sets finish to 1. The 2 is now lost, <em>clobbered</em> due to a race condition.</li>
+          <li>finish is 1</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>(display) Reflection. The above problem was an artificial simulation of what happens with other languages which might have three concurrent computations running in hardware, each innocently trying to join their number to the finish line. Thankfully, since Scratch doesn't run separate computations in hardware, this problem doesn't creep up (unless we bend over backwards to do something silly like we do here). Lesson? Whenever possible, make sure your concurrency computations are independent of which worker returns first.</li>
+</ul>
+<h3>Scratch ... Some details to form a mental model</h3>
+<ul>
+  <li>(display) This section is to help you understand the machine model some more, so that you don't get frustrated as you're working on your own projects. There are some subtleties when  the same message is broadcast multiple times. </li>
+</ul>
+<p align="center"><img src="images/multiplebroadcast.gif" width="384" height="655" alt="" style="border:none" /></p>
+<ul>
+  <li>(Scratch play) Let's explore some subtle details.
+    <ul>
+      <li>Load in <code><a href="byob/MultipleBroadcast.ypr">MultipleBroadcast.ypr</a></code>, shown above.
+        <ul>
+          <li>Take a look at the green flag hat block and the &quot;<code>when I receive <em>go</em></code>&quot; hat block Do you agree that all 5 numbers in <code>nums</code> should always be the same when the program is done running? This is called a <em>Loop Invariant</em> (something that if it's true before the loop, will be true after the loop), and it's easy to prove this should always be the case.</li>
+        </ul>
+      </li>
+      <li>Make sure you have &quot;<code>Edit-&gt;Thread Safe Scripts</code>&quot; checked.</li>
+      <li>Hit the <code>r</code> key (for <strong>r</strong>eset), space bar (to broadcast <code>go</code> once), <code>w</code> key (to send three consecutive broadcast-and-waits of <code>go</code>), and <code>b</code> key (to send three consecutive broadcasts of <code>go</code>). Are all the values the same? Did you get what you expect? (No, the broadcasts should have incremented each number 3 times but it only incremented it once!)</li>
+      <li>Now uncheck <tt>Edit-&gt;Thread Safe Scripts</tt>, and reset the values of all 5 elements to 0.</li>
+      <li>Now reset, and try the <code>space</code>, <code>w</code> and <code>b</code> keys. What just happened? Did you get what you expect? (No, the Broadcasts should have incremented each number 3 times, but it only incremented the first one!)</li>
+    </ul>
+  </li>
+  <li>(display) Reflection. When lots of broadcasts  are coming through into a receive block, there are three possibilities:
+    <ul>
+      <li>If you want <em>all</em> of them to take effect, use &quot;<code>broadcast _ and wait</code>&quot;</li>
+      <li>If you don't need all of them to take effect, but want to keep all of your inner data structures consistent, make sure you have <code>Edit-&gt;Thread Safe Scripts</code> checked.</li>
+      <li>If you have Edit-&gt;Thread Safe Scripts unchecked, you can't trust Scratch to preserve your Loop Invariants!</li>
+      <li>Lesson: The first thing you should always do is check <code>Edit-&gt;Thread Safe Scripts</code>!  </li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

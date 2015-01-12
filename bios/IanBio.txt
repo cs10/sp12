@@ -1,0 +1,48 @@
+WHERE DID YOU GROW UP?  WHAT WAS YOUR ACADEMIC PATH?
+I grew up in El Cerrito, which is literally a 10-minute BART ride away from
+campus (long trek from home, I know). I went to El Cerrito High, and from there
+went to Berkeley in Fall of 2010, which is also when I took the OG (or "first
+ever,"ù if you're not hip with the lingo) CS10 course! I came in undeclared in
+L&S (heading towards an English route oddly enough), but after I took CS10, I
+got hooked into programming, and I will be declaring a Computer Science major
+this semester!
+
+HOW MUCH PROGRAMMING HAVE YOU DONE?  WHAT LANGUAGES?
+My first language was Scratch/BYOB when I took CS10. After that I learned Scheme
+and Java, which I learned in CS61a and CS61b respectively. I have also been
+teaching myself some web development languages on the side such as PHP, HTML,
+CSS, Javascript and a little SQL. Currently, I'm learning C, Python, UNIX and
+becoming more familiar with the aforementioned web development languages.
+
+
+WHAT ARE YOUR HOBBIES? 
+I love to swim (did it competitively for 10 years!), discover new bands to
+listen to, play guitar, and try random restaurants!
+
+WHAT ARE SOME OF YOUR TALENTS AND SKILLS?
+Again, swimming is a big one. I made it to NCS and Far Westerns senior year of
+high school, and had previously competed in the Junior Olympics. Guitar has been
+something I picked up more recently, but it's my favorite way to relax. I can
+also wiggle my ears. 
+
+
+HAVE YOU EVER DONE ANYTHING REMARKABLE?
+After I took EE42, I got inspired to build my own talkbox, a device that allows
+you to shape the sounds of your guitar through your mouth, for my guitar (also,
+I didn't have the $250 to drop for one). With some basic circuitry knowledge, a
+mini-amp, and some plumbing tools, I was able to build my own fully functional
+talkbox! Pretty exciting stuff for me, as it was my first engineering-type
+project!
+
+Also, I survived (and did pretty well in) CS61b with Professor Paul Hilfinger.
+
+
+WHAT COMMITMENTS WILL BE CONSUMING YOUR CYCLES THIS TERM?
+In addition to being a reader for CS10, some of the classes I'll be taking
+include CS61c (Great Ideas in Computer Architecture), CS70 (Discrete Math and
+Probability), and the UNIX SysAdmin DeCal. I'll also be doing CS Education
+Research with Professor Dan Garcia, building an awesome project with GSI Luke
+Segars, working on human-centered design projects in Berkeley Innovation,
+leading the Student Commuters at Cal club as Co-President and Web Developer, and
+keeping Berkeley up to date with music as the Lead Music Critic for the Daily
+Californian! Looks like a fun semester!
