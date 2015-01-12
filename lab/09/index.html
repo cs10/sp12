@@ -81,7 +81,7 @@
     </ul>
   </li>
 </ul>
-<p align="center"><img src="images/LaunchTutorial.gif" width="181" height="437" alt="" style="border:none" /></p>
+<p align="center"><img src="resources/images/LaunchTutorial.gif" width="181" height="437" alt="" style="border:none" /></p>
 <ul>
   <li>(Scratch play) First, to understand the idea of two things happening at once, load up <code><a href="byob/LaunchTutorial.ypr">LaunchTutorial.ypr</a></code> (shown above). After you click the green flag, let it run for a bit, then hit the space bar once. Then hit it again, and again. Talk with your partner about what is happening, and why. (Answer: When you hit the green flag, Gobo starts off running in a circle,               because he's moving and turning at the same time. Now, whenever you hit the space key Gobo's circles become wider because he's moving <em>more</em> than before, and he only does that because his MOVE <em>threads</em> are increasing, not the number of steps per single move. I.e., Scratch initially gives equal time to its 2 &quot;forever&quot; children -- one that turns and one that moves 5 steps. So it's move, turn, move, turn, etc., yielding a (360/15 =) 24-sided polygon with 5-step sides. The next time space bar is pressed, another &quot;child&quot; is born, so now the three equal-time children are: &quot;turn&quot;, &quot;move&quot; and &quot;move&quot;, yielding a 24-sided polygon with 10-step sides, or a &quot;circle&quot; of twice the size)</li>
   <li>(Scratch debug) When you put two &quot;When green flag ...&quot; hat blocks in the same sprite, both will run at the same time! Similarly, if multiple sprites all have &quot;When green flag...&quot; hat blocks, these will run concurrently as well. Load up <code><a href="byob/SerialVsParallelBuggy.ypr">SerialVsParallelBuggy.ypr</a></code>, and click the green flag. You'll see  one 'serial' gold square 10x10 sprite paint the area on the right by stamping itself. You'll also see two blue 'parallel' 10x10 sprites  sharing the labor of painting the area on the left by stamping themselves.  Two screenshots are included below, one during computation, and one after all three sprites have finished.
@@ -91,7 +91,7 @@
     </ul>
   </li>
 </ul>
-<p align="center"><img src="images/ParallelVsSerialStart.png" width="478" height="361" alt="" style="border:none" /></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/ParallelVsSerialEnd.png" width="480" height="361" alt="" style="border:none" /></p>
+<p align="center"><img src="resources/images/ParallelVsSerialStart.png" width="478" height="361" alt="" style="border:none" /></img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="resources/images/ParallelVsSerialEnd.png" width="480" height="361" alt="" style="border:none" /></p>
 <ul>
   <li>(display) Reflection. It's important to form an accurate mental model of the machine/software when working with it. Hopefully you've seen here that Scratch gives equal time to all the workers (scripts), in lock step, and that concurrency bugs can creep up very easily.</li>
 </ul>
@@ -100,12 +100,12 @@
   <li>(display) Scratch supports parallelism! Let's explore some of the fun/challenges of concurrent programming, <em>nondeterminism</em>. In this context, this means we can't pre-determine what the results will be; <em>determinism</em> means we <em>could</em> predict what the outputs would be. One of the first exercises we always have parallel programming students do (in other languages) is to have a &quot;dispatcher&quot; start up 10 &quot;workers&quot; (other langauges typically call these <em>threads</em>), numbered 1-10, and all the workers do is shout out &quot;Hello from thread #i&quot; (where i is a number from 1-10). The neat thing that always results is that the result looks something like a random permutation of &quot;Hello from thread #i&quot; numbers, almost never in  order. Every time the program runs, a different order comes out. It's neat to see that, and realize when programming concurrently, we need to understand that (for many complicated reasons), the workers may take different amounts of time to return, so our computations shouldn't depend on their order (as the printing example did).</li>
   <li>(Scratch modify) In the last Scratch exercise, it was a little artificial; the sprites were in lock step. Let's  take a look at a similar project, <tt><a href="byob/Determinism.ypr">Determinism.ypr</a></tt>.  Here four 60x60 sprites do the same thing (color the screen by stamping themselves through the <code>Fill Screen</code> command shown below), and once they finish, they add their name to the end of the <code>finish</code> variable. Run it a couple of times. Boring, right? That was because Scratch is still in lock step. Make a very small change to Fill Screen - have each sprite wait a random value between 1 and 1/10 seconds before stamping. (this involves the introduction of a very simple command right before the &quot;stamp&quot; call in <code>Fill Screen</code>: &quot;wait (1 / (pick random [1] to [10])) secs&quot;). Run it a few times; now what happens? (Answer: Four &quot;threads&quot; take off, and the slowest  (i.e., last) color at each time step is that one who colors that 60x60 square). Save this project as <code>NonDeterminism.ypr</code>.</li>
 </ul>
-<p align="center"><img src="images/FillScreen.gif" width="215" height="188" alt="FillScreen defintion" /><br />
+<p align="center"><img src="resources/images/FillScreen.gif" width="215" height="188" alt="FillScreen defintion" /><br />
 </p>
 <ul>
   <li>(quiz) If we run the following Scratch program and answer &quot;yes&quot;, we note that <code>finish</code> is always <tt>123</tt>. What are the possible values of <code>finish</code> if we answer &quot;no&quot;? (we've shown the definition of <code>read and write finish with <em>n</em></code>) </li>
 </ul>
-<p align="center"><img src="images/racecondition.gif" width="1075" height="487" alt="" style="border:none" /></p>
+<p align="center"><img src="resources/images/racecondition.gif" width="1075" height="487" alt="" style="border:none" /></p>
 <ul>
   <li>(Scratch play) Test your answer by running <code><a href="byob/RaceCondition.ypr">RaceCondition.ypr</a></code> several times, answering &quot;no&quot;. Compare with answering &quot;yes&quot;.</li>
   <li>(display) Quiz Answer explained
@@ -151,7 +151,7 @@
 <ul>
   <li>(display) This section is to help you understand the machine model some more, so that you don't get frustrated as you're working on your own projects. There are some subtleties when  the same message is broadcast multiple times. </li>
 </ul>
-<p align="center"><img src="images/multiplebroadcast.gif" width="384" height="655" alt="" style="border:none" /></p>
+<p align="center"><img src="resources/images/multiplebroadcast.gif" width="384" height="655" alt="" style="border:none" /></p>
 <ul>
   <li>(Scratch play) Let's explore some subtle details.
     <ul>

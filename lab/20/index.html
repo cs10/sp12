@@ -45,13 +45,13 @@ interface and definition shown below).</li>
 </ul>
 
 <p align="center">
-  <img src="images/MapReduceSignature.gif" width="188" height="22" alt="MapReduce Signature" /><br /><br />
-  <img src="images/MapReduceDefinition.gif" width="322" height="103" alt="MapReduce Definition" />
+  <img src="resources/images/MapReduceSignature.gif" width="188" height="22" alt="MapReduce Signature" /><br /><br />
+  <img src="resources/images/MapReduceDefinition.gif" width="322" height="103" alt="MapReduce Definition" />
 </p>
 
 <h2>Let's start solving problems with MapReduce!</h2>
 <p>To get started, load up our finished project, <a href="byob/MapReduce.ypr"><code><strong>MapReduce.ypr</strong></code></a>. Your screen should look like this:</p>
-<p align="center"><img src="images/MapReduceScreen.png" width="480" height="359" alt="Startup splash Screen for MapReduce BYOB project" /></p>
+<p align="center"><img src="resources/images/MapReduceScreen.png" width="480" height="359" alt="Startup splash Screen for MapReduce BYOB project" /></p>
 <p align="left">Now, click the green flag to get started and initialize the system. After that, you can type any number 1-5 to run one of the five MapReduces below, and '<code>r</code>' to reset to the initial state. We've given you all the answers, so you can see and understand what the problem is asking you to do and what the expected output is. </p>
 <p align="left">By the way, the word <em>Domain</em> means 'input', and the word <em>Range</em> means 'output'.</p>
 <h2 align="left">Your first MapReduce : a simple sum-of-squares (we did it for you)</h2>
@@ -80,18 +80,18 @@ interface and definition shown below).</li>
       </tr>
     </table>
 <p>...and here's what it looks like when we do it: </p>
-    <p align="center"><img src="images/SumOfSquaresMR.png" width="331" height="105" alt="Sum-of-squares MapReduce" /></p>
+    <p align="center"><img src="resources/images/SumOfSquaresMR.png" width="331" height="105" alt="Sum-of-squares MapReduce" /></p>
    Let's note a couple things:
    <ul>
-   <li>First of all, both mapper and reducer are <em>reporter</em> blocks, so we need to wrap them in grey borders so they pass in the functions themselves as data, not the results of calling multiply and addition on two empty inputs (i.e., 0). We prefer this abbreviated style, but we could also have used the <img src="images/TheBlock.gif" width="98" height="16" alt="The _ Block" /> blocks and NOT used the gray borders like this (this should be review for you, btw).</li>
+   <li>First of all, both mapper and reducer are <em>reporter</em> blocks, so we need to wrap them in grey borders so they pass in the functions themselves as data, not the results of calling multiply and addition on two empty inputs (i.e., 0). We prefer this abbreviated style, but we could also have used the <img src="resources/images/TheBlock.gif" width="98" height="16" alt="The _ Block" /> blocks and NOT used the gray borders like this (this should be review for you, btw).</li>
 </ul>
-   <p align="center"><img src="images/SumOfSquaresMRtheblock.png" width="320" height="105" alt="Sum Of Squares using The Block" /></p>
+   <p align="center"><img src="resources/images/SumOfSquaresMRtheblock.png" width="320" height="105" alt="Sum Of Squares using The Block" /></p>
    <ul>
-     <li>The mapper should take a single number as input, but what we've used for simplicity is just the  <img src="images/Multiply.gif" width="49" height="18" alt="Multiply" /> block, which has two inputs. You also recall that BYOB, given a function of two inputs but with only one input (each element  in Map's input list in this case) will just copy the input to all the fields, making it a nice, effective square procedure.</li>
-     <li>As we go through more detailed examples, we're going to want to write a <em>mapper</em> and <em>reducer</em> funtions as separate and defined blocks, so for good code management, we're going to define a sprite per MapReduce problem, each of which has a <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" />, with the answers already filled in. Once you understand what the problem is, first edit the  <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> block, delete its body, and see if you can recreate it. Once you've got a working <img src="images/mapper.gif" width="69" height="18" alt="mapper" />, do the same with the <img src="images/reducer.gif" width="87" height="18" alt="reducer" />. That way, you'll always have a working system. Note that we've written  a lot of helper functions to make your life easier. Feel free to use the <code>Scripts</code> area of each sprite for debugging. When you're done with each of these, compare your answer with ours.</li>
+     <li>The mapper should take a single number as input, but what we've used for simplicity is just the  <img src="resources/images/Multiply.gif" width="49" height="18" alt="Multiply" /> block, which has two inputs. You also recall that BYOB, given a function of two inputs but with only one input (each element  in Map's input list in this case) will just copy the input to all the fields, making it a nice, effective square procedure.</li>
+     <li>As we go through more detailed examples, we're going to want to write a <em>mapper</em> and <em>reducer</em> funtions as separate and defined blocks, so for good code management, we're going to define a sprite per MapReduce problem, each of which has a <img src="resources/images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="resources/images/reducer.gif" width="87" height="18" alt="reducer" />, with the answers already filled in. Once you understand what the problem is, first edit the  <img src="resources/images/mapper.gif" width="69" height="18" alt="mapper" /> block, delete its body, and see if you can recreate it. Once you've got a working <img src="resources/images/mapper.gif" width="69" height="18" alt="mapper" />, do the same with the <img src="resources/images/reducer.gif" width="87" height="18" alt="reducer" />. That way, you'll always have a working system. Note that we've written  a lot of helper functions to make your life easier. Feel free to use the <code>Scripts</code> area of each sprite for debugging. When you're done with each of these, compare your answer with ours.</li>
    </ul>
 <h2>Your second MapReduce : <em>Alpha</em>, the first word in the dictionary</h2>
-   <p>We're going to start easy and tell you how to write your mapper and reducer. In fact, this problem is so easy, it just requires you to write the reducer, since the mapper is the same as the identity <img src="images/id.gif" width="35" height="18" alt="id" />! (I.e., the mapper just passes its input through, untouched, and the reducer has to do all the work!). Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Alpha</code> sprite and test it.</p>
+   <p>We're going to start easy and tell you how to write your mapper and reducer. In fact, this problem is so easy, it just requires you to write the reducer, since the mapper is the same as the identity <img src="resources/images/id.gif" width="35" height="18" alt="id" />! (I.e., the mapper just passes its input through, untouched, and the reducer has to do all the work!). Fill in the body for the <img src="resources/images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="resources/images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Alpha</code> sprite and test it.</p>
    <table width="100%" border="1">
      <tr>
        <th scope="col">Problem</th>
@@ -125,7 +125,7 @@ interface and definition shown below).</li>
 <h2>Your third MapReduce : <em>Love</em>, All the Beatles song titles with the word &quot;love&quot; in it</h2>
 <p>Hopefully that last one wasn't too bad. This one is a little harder because you have to write both the 
 mapper and reducer. The idea is you've got a huge set of data and you need to keep only the ones that match. 
-Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Love</code> sprite and test it.</p>
+Fill in the body for the <img src="resources/images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="resources/images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Love</code> sprite and test it.</p>
    <table width="100%" border="1">
      <tr>
        <th scope="col">Problem</th>
@@ -157,12 +157,12 @@ Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt
      <li>combining</li>
    </ol>
    <h2>Your fourth MapReduce : <em>WordCount</em>, a count of the number of times words appears</h2>
-   <p> This one is quite a bit harder because of all the list manipulation. The idea is you've got a huge corpus of data and you want to count all the times words appear. Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> WordCount</code> sprite and test it.</p>
+   <p> This one is quite a bit harder because of all the list manipulation. The idea is you've got a huge corpus of data and you want to count all the times words appear. Fill in the body for the <img src="resources/images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="resources/images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> WordCount</code> sprite and test it.</p>
    <h3>A quick aside on writing lists on paper...</h3>
    <p>Remember the Midterm handout &quot;Writing Scratch/BYOB code on Paper&quot;? Well, we're going to add something to it. When you want to write a list of things,   write them with an open parenthesis, then the first item, second item, etc (separated by spaces) and when you're done,  put a closed parenthesis. If any of your items are a sentence, you have to put quotes around the sentence. So, for example, the list of three things:</p>
-   <p align="center"><img src="images/rights.png" width="183" height="113" alt="rights" /></p>
+   <p align="center"><img src="resources/images/rights.png" width="183" height="113" alt="rights" /></p>
    <p>...would be written as the equivalent 3-element-list: <code>(life liberty &quot;pursuit of happiness&quot;)</code>. Similarly, a nested list just shows up as a nested set of parenthesis. E.g.,</p>
-   <p align="center"><img src="images/LoveHateThe.png" width="142" height="323" alt="LoveHateThe" /></p>
+   <p align="center"><img src="resources/images/LoveHateThe.png" width="142" height="323" alt="LoveHateThe" /></p>
 <p>...would be written as <code>((Love 5) (Hate 4) (The 10))</code>. We mention this because we've used this short-cut below. Now, on to the problem.</p>
 <table width="100%" border="1">
   <tr>
@@ -192,7 +192,7 @@ Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt
   <li>We found it useful to write the helper <code>GetCount-of-Word-()-from-List</code> ... feel free to use this when writing <code>reducer</code>, but make sure you could write this on your own too.</li>
 </ol>
 <h2>Extra for Experts : the fifth MapReduce ... <em>Google</em>, building a Google-like index</h2>
-<p>  The idea here is you've got a huge set of webpages (URLs) and webpage-content and you want to create a huge table indexed by each word that shows you what URL the word is in. Fill in the body for the <img src="images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Google</code> sprite and test it. <em>Hint: This problem is very similar to WordCount</em>.</p>
+<p>  The idea here is you've got a huge set of webpages (URLs) and webpage-content and you want to create a huge table indexed by each word that shows you what URL the word is in. Fill in the body for the <img src="resources/images/mapper.gif" width="69" height="18" alt="mapper" /> and <img src="resources/images/reducer.gif" width="87" height="18" alt="reducer" /> for the <code> Google</code> sprite and test it. <em>Hint: This problem is very similar to WordCount</em>.</p>
 <table width="100%" border="1">
   <tr>
     <th scope="col">Problem</th>
